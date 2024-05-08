@@ -1,19 +1,21 @@
-import Cart from "./CartWidget"
+import { listaCat } from "../mock/asyncMock"
+import { Link } from "react-router-dom";
 
-function Nav() {
+export function Nav() {
     return (
         <header>
             <h1>SALCHIFLIX</h1>
+            {/* <Cart /> */}
+            <h3>CATEGORÍAS:</h3>
             <div>
-                <ul><a href="#">Accion</a></ul>
-                <ul><a href="#">Comedia</a></ul>
-                <ul><a href="#">Documentales</a></ul>
-                <ul><a href="#">Ficción</a></ul>
-                <ul><a href="#">Terror</a></ul>
+                <ul>
+                    {listaCat.map((el) => {
+                        return <Link to={`/categoria/${el}`} key={el}> {el} | </Link>;
+                    })}
+                </ul>
             </div>
-            <Cart />
+            <hr />
+            <hr />
         </header>
     )
 }
-
-export default Nav
