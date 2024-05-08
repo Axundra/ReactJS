@@ -15,12 +15,10 @@ const
 
 
 
-function Cart() {
+export function Cart() {
     return (
         <div style={styleDiv}>
             <img src="img/cart.jpeg" alt="Carrito" style={styleCart} />
             <p style={styleN}>4</p>
         </div>)
 }
-
-export default Cart
