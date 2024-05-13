@@ -1,11 +1,12 @@
 import { listaCat } from "../mock/asyncMock"
 import { Link } from "react-router-dom";
+import { Cart } from "./CartWidget";
 
 export function Nav() {
     return (
         <header>
             <h1>SALCHIFLIX</h1>
-            {/* <Cart /> */}
+            {<Cart />}
             <h3>CATEGORÍAS:</h3>
             <div>
                 <ul>

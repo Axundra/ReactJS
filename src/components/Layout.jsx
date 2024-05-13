@@ -1,5 +1,21 @@
-import { peliculas } from "../mock/asyncMock";
+import peliculas from "../mock/asyncMock";
 import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+function pushHTML(arr, id, titulo, descripcion, categoria, i) {
+    arr.push(
+        <section key={i}>
+            <Link to={`/pelicula/${id}`}><h2>{titulo}</h2></Link>
+            <p>SINOPSIS:</p>
+            <p>{descripcion}</p>
+            <p>{categoria.map((el) => {
+                return (<><Link to={`/categoria/${el}`} key={el}>{el}</Link> · </>)
+            })}</p>
+            <hr />
+            <br />
+        </section>
+    )
+}
 
 function PeliListaHTML(arr) {
 
@@ -10,20 +26,7 @@ function PeliListaHTML(arr) {
             titulo = arr[i].titulo,
             descripcion = arr[i].descripcion,
             categoria = arr[i].categoria;
-
-
-        lista.push(
-            <section key={i}>
-                <Link to={`/pelicula/${id}`}><h2>{titulo}</h2></Link>
-                <p>{`SINOPSIS: ${descripcion}`}</p>
-                <p>{categoria.map((el) => {
-                    return (<><Link to={`/categoria/${el}`} key={el}>{el}</Link> · </>)
-                    //ya sé que repetí código, se me hizo problematico solucionarlo ahora
-                })}</p>
-                <hr />
-                <br />
-            </section>
-        )
+        pushHTML(lista, id, titulo, descripcion, categoria, i)
     }
     return lista;
 }
@@ -35,11 +38,24 @@ export function PeliID() {
     return lista[peliID];
 }
 
-export function PelisCat() {""/* 
-    const { peliCat } = useParams();
-    const filtro = []
-        for (let i = 0; i < peliculas.length; i++) {
-            filtro.push(peliculas.filter((peli) => peli[i].categoria2 == peliCat))
+export function PelisCat() {
+    const { peliCat } = useParams(),
+        [pelis, setPelis] = useState([]),
+        filtro = []
+    useEffect(() => { setPelis(peliculas) }, [])
+
+    for (let i = 0; i < pelis.length; i++) {
+        for (let o = 0; o < pelis[i].categoria.length; o++) {
+            if (pelis[i].categoria[o] == peliCat) {//← creo que esto es igual que un filter pero por alguna razon no lo podia hacer andar :|
+
+                const id = pelis[i].id,
+                    titulo = pelis[i].titulo,
+                    descripcion = pelis[i].descripcion,
+                    categoria = pelis[i].categoria;
+
+                pushHTML(filtro, id, titulo, descripcion, categoria, i)
+            }
         }
-    return PeliListaHTML(filtro) */
+    }
+    return filtro;
 }

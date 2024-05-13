@@ -1,4 +1,4 @@
-export const peliculas = [
+const peliculas = [
     {
         id: 0,
         titulo: "Shrek",
@@ -8,8 +8,7 @@ export const peliculas = [
             "animacion",
             "comedia",
             "fantasia"
-        ],
-        categoria2 : "comedia"
+        ]
     },
     {
         id: 1,
@@ -20,8 +19,7 @@ export const peliculas = [
             "suspenso",
             "romance",
             "drama"
-        ],
-        categoria2 : "drama"
+        ]
     },
     {
         id: 2,
@@ -33,8 +31,7 @@ export const peliculas = [
             "comedia",
             "drama",
             "accion"
-        ],
-        categoria2 : "accion"
+        ]
     },
     {
         id: 3,
@@ -45,8 +42,7 @@ export const peliculas = [
             "anime",
             "fantasia",
             "aventura"
-        ],
-        categoria2 : "animacion"
+        ]
     },
     {
         id: 4,
@@ -57,8 +53,7 @@ export const peliculas = [
             "animacion",
             "comedia",
             "familiar"
-        ],
-        categoria2 : "animacion"
+        ]
     },
     {
         id: 5,
@@ -70,8 +65,7 @@ export const peliculas = [
             "humor negro",
             "drama",
             "romance"
-        ],
-        categoria2 : "comedia"
+        ]
     },
     {
         id: 6,
@@ -82,12 +76,16 @@ export const peliculas = [
             "terror",
             "suspenso",
             "accion"
-        ],
-        categoria2 : "accion"
+        ]
     }
 ]
-export function GetCat({cat}) {
-    return peliculas.filter(() => peliculas.categoria == cat); 
+
+//_______________________________________________________________________________________________________________________________________
+
+export default peliculas;
+
+export function GetCat({ cat }) {
+    return peliculas.filter(() => peliculas.categoria == cat);
 }
 
 //lista de categorias sin que se repitan
