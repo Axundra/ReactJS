@@ -3,12 +3,9 @@ import { Link, useParams } from "react-router-dom";
 
 
 export const PelisCateg = () => {
-    const { catParam } = useParams()
-    const filtro = peliculas.map(el => {
-        if (el.categoria.filter(cat => cat == catParam)) {
-            return el
-        }
-    })
+
+    const { catParam } = useParams(),
+        filtro = peliculas.filter((el) => el.categoria.includes(catParam))
     let keys = 0;
 
     return (<>

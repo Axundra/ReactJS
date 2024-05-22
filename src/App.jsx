@@ -12,7 +12,7 @@ function App() {
       <Route path='/' element={<PeliLista arr={peliculas} />} />
       <Route path='/cart' element={<Cart />} />
       {/* <Route path='/pelicula/:peliID' element={<PeliID click={<ClickAdd />} />} /> */}
-      <Route path='/categoria/:peliCat' element={<PelisCateg />} />
+      <Route path='/categoria/:catParam' element={<PelisCateg />} />
     </Routes>
   </BrowserRouter>
 }
