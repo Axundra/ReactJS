@@ -1,9 +1,10 @@
+import { Cart } from './components/CartWidget'
 import { Nav } from './components/NavBar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Cart, ClickAdd } from './components/CartWidget'
 import { PeliLista } from './components/itemList'
 import { PelisCateg } from './components/categList'
 import peliculas from './mock/asyncMock'
+
 
 function App() {
   return <BrowserRouter>
