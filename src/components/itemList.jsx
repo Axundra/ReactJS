@@ -4,7 +4,7 @@ import peliculas from "../mock/asyncMock";
 export const PeliLista = () => {
     let keys = 0;
     return (peliculas.map(el => {
-        return (<section key={`peliKey_${(keys += 1)}`}>
+        return (<ul key={`peliKey_${keys += 1}`}>
             <Link to={`/pelicula/${el.id}`}><h2>{el.titulo}</h2></Link>
             <p>SINOPSIS:</p>
             <p>{el.descripcion}</p>
@@ -13,8 +13,7 @@ export const PeliLista = () => {
             })}
             </p>
             <hr />
-        </section>
-        )
+        </ul>)
     })
     )
 }

@@ -7,7 +7,7 @@ export function Nav() {
     return (
         <header>
             <h1>SALCHIFLIX</h1>
-            {<Cart />}
+            {/* {<Cart />} */}
             <h3>CATEGORÍAS:</h3>
             <div>
                 <ul>
