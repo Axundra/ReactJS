@@ -1,6 +1,6 @@
 import { listaCat } from "../mock/asyncMock"
 import { Link } from "react-router-dom";
-import { Cart } from "cartWidget";
+import { Cart } from "./cartWidget";
 
 
 export function Nav() {
