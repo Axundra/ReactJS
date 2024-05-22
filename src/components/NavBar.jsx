@@ -2,6 +2,7 @@ import { listaCat } from "../mock/asyncMock"
 import { Link } from "react-router-dom";
 import { Cart } from "./CartWidget";
 
+
 export function Nav() {
     return (
         <header>

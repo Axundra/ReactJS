@@ -1,24 +1,46 @@
+import { useState } from "react"
+import { Link, useParams } from "react-router-dom"
+
 const
     styleDiv = {
-        display: "flex"
+        "display": "flex"
     },
     styleCart = {
-        width: "50px",
-        height: "50px"
+        "width": "50px",
+        "height": "50px"
     },
-    styleN = {
+    styleNum = {
         "background-color": "aqua",
-        "border-radius": "100%",
-        "padding-left": "5px",
-        width: "15px"
+        "border-radius": "50%",
+        "padding": "2px",
+        "padding-left": "7px",
+        "padding-right": "7px",
     }
 
 
 
+
 export function Cart() {
+    const [cartCount, setCartCount] = useState(0),
+        { idParam } = useParams();
     return (
         <div style={styleDiv}>
-            <img src="img/cart.jpeg" alt="Carrito" style={styleCart} />
-            <p style={styleN}>4</p>
-        </div>)
+            <Link to={"/cart"} key={"carrito"}>
+                <img src="../img/cart.jpeg" alt="Carrito" style={styleCart} />
+            </Link>
+            <p style={styleNum}>
+                {cartCount}
+            </p>
+        </div>
+    )
+}
+
+export function ClickAdd({setCartCount}) {
+    setCartCount(cartCount + 1);
+    const { peliID } = useParams();
+    
+}
+
+export function CartHTML() {
+
 }
