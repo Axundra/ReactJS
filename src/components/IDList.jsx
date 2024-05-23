@@ -1,14 +1,9 @@
+import { useParams } from "react-router-dom";
+import peliculas from "../mock/asyncMock";
+
+
 export const PeliID = (click) => {
     const { peliID } = useParams();
-    const peliActual = [PeliLista()[peliID]];
-    peliActual.push(
-        <div key={"button"}>
-            <button onClick={click}>{`Añadir al carrito ${peliculas[peliID].titulo}`}</button>
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-        </div>
-    )
-    return peliActual;
+    const peliActual = [peliculas.filter((el) => el.id == peliID)];
+    return
 }

@@ -1,19 +1,10 @@
-import { Link } from "react-router-dom"
 import peliculas from "../mock/asyncMock";
+import { card } from "./peliCard";
 
 export const PeliLista = () => {
     let keys = 0;
-    return (peliculas.map(el => {
-        return (<ul key={`peliKey_${keys += 1}`}>
-            <Link to={`/pelicula/${el.id}`}><h2>{el.titulo}</h2></Link>
-            <p>SINOPSIS:</p>
-            <p>{el.descripcion}</p>
-            <p>{el.categoria.map((elCat) => {
-                return (<Link to={`/categoria/${elCat}`} key={elCat}>{`${elCat} · `}</Link>)
-            })}
-            </p>
-            <hr />
-        </ul>)
-    })
-    )
+    return (<>
+        {peliculas.map((el) => (
+            card(el, keys += 1)))}
+    </>);
 }
